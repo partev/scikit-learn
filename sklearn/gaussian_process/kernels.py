@@ -1949,7 +1949,7 @@ class ExpSineSquared(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
         \frac{ 2\sin^2(\pi d(x_i, x_j)/p) }{ l^ 2} \right)
 
     where :math:`l` is the length scale of the kernel, :math:`p` the
-    periodicity of the kernel and :math:`d(\\cdot,\\cdot)` is the
+    periodicity of the kernel and :math:`d(\cdot,\cdot)` is the
     Euclidean distance.
 
     Read more in the :ref:`User Guide <gp_kernels>`.
@@ -2278,7 +2278,7 @@ class PairwiseKernel(Kernel):
     >>> from sklearn.gaussian_process import GaussianProcessClassifier
     >>> from sklearn.gaussian_process.kernels import PairwiseKernel
     >>> X, y = load_iris(return_X_y=True)
-    >>> kernel = PairwiseKernel(metric='rbf')
+    >>> kernel = PairwiseKernel(metric='')
     >>> gpc = GaussianProcessClassifier(kernel=kernel,
     ...         random_state=0).fit(X, y)
     >>> gpc.score(X, y)
@@ -2386,7 +2386,7 @@ class PairwiseKernel(Kernel):
 
     def is_stationary(self):
         """Returns whether the kernel is stationary."""
-        return self.metric in ["rbf"]
+        return self.metric in [""]
 
     def __repr__(self):
         return "{0}(gamma={1}, metric={2})".format(
